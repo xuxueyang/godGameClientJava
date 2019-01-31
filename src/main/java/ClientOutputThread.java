@@ -28,18 +28,19 @@ public class ClientOutputThread extends Thread
 
             while (true){
                 String line = reader.readLine();
+                byte[] bytes = line.getBytes();
+                os.write(bytes.length);
+                os.write(bytes);
 
-//                os.write(line.getBytes());
-
-                AccountInfoDTO accountInfoDTO = new AccountInfoDTO();
-                accountInfoDTO.accountName = "admin";
-                accountInfoDTO.password = "admin";
-
-                SocketModel model = new SocketModel();
-                model.type = 0;
-                model.command = 0;
-                model.message = accountInfoDTO;
-                os.write(JSON.toJSONBytes(model));
+//                AccountInfoDTO accountInfoDTO = new AccountInfoDTO();
+//                accountInfoDTO.accountName = "admin";
+//                accountInfoDTO.password = "admin";
+//
+//                SocketModel model = new SocketModel();
+//                model.type = 0;
+//                model.command = 0;
+//                model.message = accountInfoDTO;
+//                os.write(JSON.toJSONBytes(model));
                 System.out.println(" ‰»Î£∫ "+line);
             }
         }

@@ -23,7 +23,10 @@ public class testOneNPCRoom {
         OutputStream os = socket.getOutputStream();
         System.out.println(JSON.toJSON(model));
         System.out.println(JSON.toJSONBytes(model));
-        os.write(JSON.toJSONBytes(model));
+        byte[] bytes = JSON.toJSONBytes(model);
+        int length = bytes.length;
+        os.write(length);
+        os.write(bytes);
         //开个线程接受服务器消息，以及开个线程，发送消息
 
     }
