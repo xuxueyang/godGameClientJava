@@ -42,10 +42,10 @@ public class testOneNPCRoom {
             messages = JSON.toJSONBytes(message);
         }
         byte[] out = new  byte[4+types.length+areas.length+commands.length+messages.length];
-
+        String len = types.length+areas.length+commands.length+messages.length+"";
         int destLen = 0;
-        System.arraycopy("4".getBytes(), 0, out, destLen, "4".getBytes().length);
-        destLen += "4".getBytes().length;
+        System.arraycopy(len.getBytes(), 0, out, destLen, len.getBytes().length);
+        destLen += len.getBytes().length;
         System.arraycopy(types, 0, out, destLen, types.length);
         destLen += types.length;
         System.arraycopy(areas, 0, out, destLen, areas.length);
